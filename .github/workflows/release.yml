@@ -11,6 +11,12 @@ env:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        wasi_sdk_version:
+        - major: 11
+          minor: 0
+
     name: Build release assets
 
     runs-on: ubuntu-latest
@@ -39,7 +45,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: cwasm.wasm
-        path: path/to/wasm/cwasm.wasm
+        path: ./cwasm.wasm
 
   publish:
     name: Push released module to OCI registry
