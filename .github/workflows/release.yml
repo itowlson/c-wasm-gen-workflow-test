@@ -38,7 +38,7 @@ jobs:
       shell: bash
       run: echo "name=RELEASE_VERSION::canary" >> $GITHUB_ENV
 
-    - name: Build
+    - name: Build release
       run: make WASI_SDK=wasi-sdk-${{ matrix.wasi_sdk_version.major }}.${{ matrix.wasi_sdk_version.minor }}
 
     - name: Upload artifact
